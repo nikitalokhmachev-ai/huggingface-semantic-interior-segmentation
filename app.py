@@ -1,7 +1,6 @@
 import gradio as gr
 import glob
 import torch
-import joblib
 from PIL import Image, ImageDraw
 import numpy as np
 from transformers import AutoImageProcessor, Mask2FormerForUniversalSegmentation

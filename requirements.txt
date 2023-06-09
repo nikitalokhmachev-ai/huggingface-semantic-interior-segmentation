@@ -2,4 +2,3 @@ torch
 transformers
 scipy
 gradio
-joblib
