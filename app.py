@@ -1,7 +1,7 @@
 import gradio as gr
 import glob
 import torch
-import pickle
+import joblib
 from PIL import Image, ImageDraw
 import numpy as np
 from transformers import AutoImageProcessor, Mask2FormerForUniversalSegmentation
@@ -60,8 +60,7 @@ def gradio_process(image):
   out_image = get_out_image(image, predicted_semantic_map)
   return out_image
 
-with open('ade20k_classes.pickle', 'rb') as f:
-  class_names, class_ids, class_colors = pickle.load(f)
+class_names, class_ids, class_colors = joblib.load('ade20k_classes.joblib')
 class_names, class_ids, class_colors = np.array(class_names), np.array(class_ids), np.array(class_colors)
 class_dict = dict(zip(class_ids, class_names))
 
